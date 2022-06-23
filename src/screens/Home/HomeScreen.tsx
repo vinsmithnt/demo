@@ -1,7 +1,7 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import { Text, View } from 'react-native';
 
-const HomeScreen = () => {
+const HomeScreen: React.FC = () => {
   return (
     <View>
       <Text>Home Screen</Text>

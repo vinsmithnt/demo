@@ -6,14 +6,14 @@
  * @flow strict-local
  */
 
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import React from 'react';
 import HomeScreen from './src/screens/Home/HomeScreen';
 import NavigationService from './src/services/NavigationService';
 
-const App = () => {
+const App: React.FC = () => {
   const Stack = createNativeStackNavigator();
 
   return (
