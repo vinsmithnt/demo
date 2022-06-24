@@ -1,13 +1,29 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import CustomText from './CustomText';
 import FastImage from 'react-native-fast-image';
-import {CharacterBoxProps} from '../config/interfaceTypes';
+import {CharacterBoxProps, ListArrayProps} from '../config/interfaceTypes';
 import {color} from '../config/colors';
+import {heartOutLine, heartRed} from '../config/imageSources';
+import {useDispatch, useSelector} from 'react-redux';
+import {setList} from '../redux/Actions/listAction';
 
 const CharacterBox: React.FC<CharacterBoxProps> = props => {
   const {item, index} = props;
+  const dispatch = useDispatch();
+  const listing: any = useSelector<ListArrayProps>(
+    state => state.listArray.list,
+  );
+
+  const likeDislike = (char_id: Number) => {
+    const index = listing.findIndex(
+      (item: {char_id: Number}) => item.char_id === char_id,
+    );
+    let newArray = listing;
+    newArray[index].isLiked = !newArray[index].isLiked;
+    dispatch(setList(Object.assign([], newArray)));
+  };
 
   return (
     <View key={Number(index)} style={styles.boxContainer}>
@@ -33,6 +49,21 @@ const CharacterBox: React.FC<CharacterBoxProps> = props => {
             style={styles.nickNameText}
           />
         </View>
+        <TouchableOpacity onPress={() => likeDislike(item.char_id)}>
+          {item.isLiked ? (
+            <Image
+              source={heartRed}
+              style={styles.heartIcon}
+              resizeMode="contain"
+            />
+          ) : (
+            <Image
+              source={heartOutLine}
+              style={styles.heartIcon}
+              resizeMode="contain"
+            />
+          )}
+        </TouchableOpacity>
       </View>
     </View>
   );
