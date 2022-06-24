@@ -6,7 +6,7 @@ const setTopLevelNavigator = (navigatorRef: { dispatch: (arg0: CommonActions.Act
   navigator = navigatorRef;
 };
 
-const navigate = (routeName: string, params: object | undefined) => {
+const navigate = (routeName: string, params?: object ) => {
   navigator?.dispatch(
     CommonActions.navigate(routeName, {
       ...params,
@@ -14,7 +14,7 @@ const navigate = (routeName: string, params: object | undefined) => {
   );
 };
 
-const reset = (routeName: any, params: object | undefined) => {
+const reset = (routeName: any, params?: object) => {
   const resetAction = CommonActions.reset({
     index: 0,
     routes: [{ name: routeName, params: params }],
