@@ -14,6 +14,7 @@ const initialState = {
       portrayed: 'Bryan Cranston',
       category: 'Breaking Bad',
       better_call_saul_appearance: [],
+      isLiked: false,
     },
     {
       char_id: 2,
@@ -27,6 +28,7 @@ const initialState = {
       portrayed: 'Aaron Paul',
       category: 'Breaking Bad',
       better_call_saul_appearance: [],
+      isLiked: true,
     },
     {
       char_id: 3,
@@ -45,6 +47,7 @@ const initialState = {
       portrayed: 'Anna Gunn',
       category: 'Breaking Bad',
       better_call_saul_appearance: [],
+      isLiked: false,
     },
     {
       char_id: 4,
@@ -58,6 +61,7 @@ const initialState = {
       portrayed: 'RJ Mitte',
       category: 'Breaking Bad',
       better_call_saul_appearance: [],
+      isLiked: false,
     },
     {
       char_id: 5,
@@ -71,6 +75,7 @@ const initialState = {
       portrayed: 'Dean Norris',
       category: 'Breaking Bad',
       better_call_saul_appearance: [],
+      isLiked: false,
     },
     {
       char_id: 6,
@@ -84,6 +89,7 @@ const initialState = {
       portrayed: 'Betsy Brandt',
       category: 'Breaking Bad',
       better_call_saul_appearance: [],
+      isLiked: false,
     },
     {
       char_id: 7,
@@ -97,6 +103,7 @@ const initialState = {
       portrayed: 'Jonathan Banks',
       category: 'Breaking Bad, Better Call Saul',
       better_call_saul_appearance: [1, 2, 3, 4, 5],
+      isLiked: false,
     },
   ],
 };
