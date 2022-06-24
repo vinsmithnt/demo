@@ -1,13 +1,8 @@
 import React from 'react';
-import {StyleSheet, Text, TextStyle, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
+import { CustomProps } from '../config/interfaceTypes';
 
-export type Props = {
-  text: string;
-  style?: TextStyle;
-  numberOfLines?: number | undefined;
-};
-
-const CustomText: React.FC<Props> = props => {
+const CustomText: React.FC<CustomProps> = props => {
   const {text, style, numberOfLines} = props;
 
   return (
