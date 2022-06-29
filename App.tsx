@@ -9,25 +9,34 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StatusBar, View} from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
 import {Provider} from 'react-redux';
-import HeaderFavorite from './src/components/HeaderFavourite';
-import { color } from './src/config/colors';
+import HeaderHome from './src/components/HeaderHome';
+import {color} from './src/config/colors';
 import globalStyles from './src/config/globalStyles';
 import {defaultHeaderOptions} from './src/config/navigationConfig';
 import {configureStore} from './src/redux/store';
 import FavoriteScreen from './src/screens/Favorite/FavoriteScreen';
 import HomeScreen from './src/screens/Home/HomeScreen';
+import SearchScreen from './src/screens/Search/SearchScreen';
 import NavigationService from './src/services/NavigationService';
 
 const App: React.FC = () => {
   const Stack = createNativeStackNavigator();
   const store = configureStore();
 
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <View style={globalStyles.pageContainer}>
-      <StatusBar barStyle={'light-content'} backgroundColor={color.themeBlack} />
+      <StatusBar
+        barStyle={'light-content'}
+        backgroundColor={color.themeBlack}
+      />
       <Provider store={store}>
         <NavigationContainer
           ref={navigatorRef => {
@@ -38,7 +47,7 @@ const App: React.FC = () => {
               options={{
                 ...defaultHeaderOptions,
                 title: 'HOME',
-                headerRight: () => <HeaderFavorite />,
+                headerRight: () => <HeaderHome />,
               }}
               name="HomeScreen"
               component={HomeScreen}
@@ -50,6 +59,14 @@ const App: React.FC = () => {
               }}
               name="FavoriteScreen"
               component={FavoriteScreen}
+            />
+            <Stack.Screen
+              options={{
+                ...defaultHeaderOptions,
+                headerTitle: '',
+              }}
+              name="SearchScreen"
+              component={SearchScreen}
             />
           </Stack.Navigator>
         </NavigationContainer>

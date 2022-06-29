@@ -1,6 +1,7 @@
 package com.demo;
 
 import android.os.Bundle;
+import org.devio.rn.splashscreen.SplashScreen;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -28,13 +29,13 @@ public class MainActivity extends ReactActivity {
   }
 
   public static class MainActivityDelegate extends ReactActivityDelegate {
-    public MainActivityDelegate(ReactActivity activity, String mainComponentName) {
-      super(activity, mainComponentName);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(null);
+    }
+
+    public MainActivityDelegate(ReactActivity activity, String mainComponentName) {
+      super(activity, mainComponentName);
     }
 
     @Override
